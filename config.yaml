@@ -1,0 +1,18 @@
+---
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+indexes:
+  category: "categories"
+baseurl: "https://sbinet.github.io"
+title: "0xb1ns>> go run"
+theme: "purehugo"
+canonifyurls: true
+
+params:
+    author: "Sebastien Binet"
+    twitterName: "0xb1ns"
+    githubName: "sbinet"
+    description: "Digital ramblings of a french gopher"
+...
+
