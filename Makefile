@@ -7,4 +7,4 @@ deploy: build
 	go run cmd_deploy.go
 
 clean:
-	/bin/rm -rf public _blog
+	/bin/rm -rf public sbinet.github.io

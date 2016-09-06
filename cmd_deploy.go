@@ -9,12 +9,16 @@ import (
 	"time"
 )
 
-func main() {
-	os.RemoveAll("_blog")
-	run("git", "clone", "git@github.com:sbinet/sbinet.github.io", "_blog")
-	run("/bin/sh", "-c", "/bin/cp -rf public/* _blog/.")
+const (
+	blogDir = "sbinet.github.io"
+)
 
-	err := os.Chdir("_blog")
+func main() {
+	os.RemoveAll(blogDir)
+	run("git", "clone", "git@github.com:sbinet/sbinet.github.io", blogDir)
+	run("/bin/sh", "-c", "/bin/cp -rf public/* "+blogDir+"/.")
+
+	err := os.Chdir(blogDir)
 	if err != nil {
 		log.Fatal(err)
 	}
