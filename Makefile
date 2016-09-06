@@ -4,7 +4,7 @@ build: clean
 	hugo
 
 deploy: build
-	go run deploy.go
+	go run cmd_deploy.go
 
 clean:
 	/bin/rm -rf public _blog
