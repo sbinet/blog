@@ -14,5 +14,6 @@ params:
     twitterName: "0xb1ns"
     githubName: "sbinet"
     description: "Digital ramblings of a french gopher"
+    hideShareOptions: true
 ...
 
