@@ -61,7 +61,7 @@ I will use it as a guide to gain a bit of knowledge in writing interpreters.
 ## PyGo: A (toy) Python interpreter
 
 In the following, I'll show how one can write a toy `Python` interpreter in `Go`.
-But first, let us define exactly what `pygo` will do.
+But first, let me define exactly what `pygo` will do.
 `pygo` won't lex, parse nor compile `Python` code.
 
 No.
