@@ -31,7 +31,7 @@ So, let's say I want to interpret:
 7 + 5
 ```
 
-The instruction set to interpret would look like:
+The instruction set to interpret it would look like:
 
 ```go
 code := Code{
