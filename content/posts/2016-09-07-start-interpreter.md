@@ -62,7 +62,7 @@ I will use it as a guide to gain a bit of knowledge in writing interpreters.
 
 In the following, I'll show how one can write a toy `Python` interpreter in `Go`.
 But first, let us define exactly what `pygo` will do.
-`pygo` won't lex, parse and compile `Python` code.
+`pygo` won't lex, parse nor compile `Python` code.
 
 No.
 `pygo` will take directly the already compiled bytecode, produced with a
