@@ -222,7 +222,7 @@ which is indeed the expected result.
 
 The complete code is here: [github.com/sbinet/pygo/cmd/tiny-interp](https://github.com/sbinet/pygo/blob/79e9815cafa9c32e898141858502931acb3daf05/cmd/tiny-interp/main.go)
 
-## Control flow
+## Control flow && function calls
 
 `tiny-interp` is already quite great.
 I think.
@@ -239,11 +239,15 @@ def cond():
 ```
 
 `tiny-interp` doesn't handle conditionals.
-It's also completely ignorant about loops.
+It's also completely ignorant about loops and can't actually call
+(nor define) functions.
 In a nutshell, there is **no control flow** in `tiny-interp`.
 Yet.
 
-To properly implement control flow, though, `tiny-interp` will need
+To properly implement **function calls**, though, `tiny-interp` will need
 to grow a new concept: activation records, also known as `Frames`.
 
 Stay tuned...
+
+-----
+*Update:* correctly associate `Frames` with function calls. Thanks to [/u/munificent](https://www.reddit.com/user/munificent).
