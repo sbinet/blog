@@ -8,3 +8,7 @@ deploy: build
 
 clean:
 	/bin/rm -rf public sbinet.github.io
+
+serve:
+	hugo serve -w -p 8080
+
