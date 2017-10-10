@@ -48,7 +48,7 @@ func main() {
 		Hess: hess,
 	}
 
-	var method optimize.Method = &optimize.Newton{}
+	var meth = &optimize.Newton{}
 	var p0 = []float64{1} // initial value for mu
 
 	res, err := optimize.Local(p, p0, nil, method)

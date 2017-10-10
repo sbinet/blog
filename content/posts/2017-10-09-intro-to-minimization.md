@@ -131,11 +131,23 @@ int main(int argc, char **argv) {
 
 	TMinuit minuit(1);
 	minuit.SetFCN(fcn);
-	minuit.mnparm(0, "Poisson mu", start, step, l_bnd, u_bnd, ierflg);
+	minuit.mnparm(
+		0, "Poisson mu",
+		start, step,
+		l_bnd, u_bnd, ierflg
+	);
 
+	// set a 1-sigma error for the log-likelihood
 	arglist[0] = 0.5;
 	minuit.mnexcm("SET ERR",arglist,1,ierflg);
+
+	// search for minimum.
+	// computes covariance matrix and computes parabolic
+	// errors for all parameters.
 	minuit.mnexcm("MIGRAD",arglist,0,ierflg);
+
+	// calculates exact, asymmetric errors for all
+	// variable parameters.
 	minuit.mnexcm("MINOS",arglist,0,ierflg);
 
 	arglist[0] = 2.0;
@@ -218,7 +230,7 @@ func main() {
 		Hess: hess,
 	}
 
-	var method optimize.Method = &optimize.Newton{}
+	var meth = &optimize.Newton{}
 	var p0 = []float64{1} // initial value for mu
 
 	res, err := optimize.Local(p, p0, nil, method)
@@ -256,7 +268,7 @@ Yeah!
 `gonum/optimize` doesn't try to automatically numerically compute the first- and second-derivative of an objective function (`MINUIT` does.)
 But using [gonum/diff/fd](https://godoc.org/gonum.org/v1/gonum/diff/fd), it's rather easy to provide it to `gonum/optimize`.
 
-`gonum/optimize.Result` only exposes (through `gonum/optimize.Location`):
+`gonum/optimize.Result` only exposes the following informations (through `gonum/optimize.Location`):
 
 ```go
 // Location represents a location in the optimization procedure.
