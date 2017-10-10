@@ -129,7 +129,7 @@ int main(int argc, char **argv) {
 	double l_bnd = 0.1;
 	double u_bnd = 10.;
 
-	TMinuit minuit(1);
+	TMinuit minuit(1); // 1==number of parameters
 	minuit.SetFCN(fcn);
 	minuit.mnparm(
 		0, "Poisson mu",
