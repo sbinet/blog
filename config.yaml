@@ -9,6 +9,12 @@ title: "0xb1ns>> go run"
 theme: "purehugo"
 canonifyurls: true
 
+# enable pygments (but use Chroma)
+pygmentsCodeFencesGuessSyntax: true
+pygmentsUseClasses: true
+pygmentsUseClassic: false
+#pygmentsCodeFences: true
+
 params:
     author: "Sebastien Binet"
     twitterName: "0xb1ns"
