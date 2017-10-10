@@ -81,6 +81,23 @@ Ok, let's try to estimate `µ` using a log-likelihood minimization.
 
 ## With `MINUIT`
 
+From the plot above and from first principles, we can assume a Poisson distribution.
+The Poisson probability is:
+
+```latex
+P(n|\mu) = \mu^{n} / n! * e^{-\mu}
+```
+
+This therefore leads to a log-likelihood of:
+
+```latex
+ln L(\mu) = n ln(\mu) - ln(n!) - \mu
+```
+
+which is the quantity we'll try to optimize.
+
+In `C++`, this would look like:
+
 ```c++
 #include <math.h>
 #include <cstdio>
@@ -107,7 +124,7 @@ int main(int argc, char **argv) {
 	double arglist[10];
 	int ierflg = 0;
 
-	double start = 1.0; // initial value for the mean
+	double start = 1.0; // initial value for mu
 	double step = 0.1;
 	double l_bnd = 0.1;
 	double u_bnd = 10.;
