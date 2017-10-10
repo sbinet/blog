@@ -150,8 +150,12 @@ int main(int argc, char **argv) {
 	// variable parameters.
 	minuit.mnexcm("MINOS",arglist,0,ierflg);
 
+	// set a 2-sigma error for the log-likelihood
 	arglist[0] = 2.0;
 	minuit.mnexcm("SET ERR",arglist,1,ierflg);
+
+	// calculates exact, asymmetric errors for all
+	// variable parameters.
 	minuit.mnexcm("MINOS",arglist,0,ierflg);
 
 	results(&minuit);
