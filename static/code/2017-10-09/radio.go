@@ -12,6 +12,7 @@ import (
 	"gonum.org/v1/gonum/mat"
 	"gonum.org/v1/gonum/optimize"
 	"gonum.org/v1/gonum/stat"
+	"gonum.org/v1/gonum/stat/distuv"
 	"gonum.org/v1/plot/vg"
 )
 
@@ -112,6 +113,8 @@ func edm(res *optimize.Result, errs mat.Symmetric) float64 {
 }
 
 func plot(rs []float64) {
+	mean := stat.Mean(rs, nil)
+
 	// hbook is go-hep.org/x/hep/hbook.
 	// here we create a 1-dim histogram with 10 bins,
 	// from 0 to 10.
@@ -119,6 +122,7 @@ func plot(rs []float64) {
 	for _, x := range rs {
 		h.Fill(x, 1)
 	}
+	h.Scale(1 / h.Integral())
 
 	// hplot is a convenience package built on top
 	// of gonum.org/v1/plot.
@@ -128,6 +132,10 @@ func plot(rs []float64) {
 	hh := hplot.NewH1D(h)
 	hh.FillColor = color.RGBA{255, 0, 0, 255}
 	p.Add(hh)
+
+	fct := hplot.NewFunction(distuv.Poisson{Lambda: mean}.Prob)
+	fct.Color = color.RGBA{0, 0, 255, 255}
+	p.Add(fct)
 	p.Add(hplot.NewGrid())
 
 	err := p.Save(10*vg.Centimeter, -1, "plot.png")
