@@ -1,5 +1,5 @@
 ---
-contentdir: "content"
+contentdir: "src"
 layoutdir: "layouts"
 publishdir: "_build/public"
 indexes:
