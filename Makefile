@@ -7,7 +7,7 @@ deploy: build
 	go run cmd_deploy.go
 
 clean:
-	/bin/rm -rf public sbinet.github.io
+	/bin/rm -rf _build
 
 serve:
 	hugo serve -w -p 8080

@@ -5,20 +5,31 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"time"
 )
 
 const (
-	blogDir = "sbinet.github.io"
+	buildDir = "_build"
+	blogDir  = "sbinet.github.io"
 )
 
 func main() {
-	os.RemoveAll(blogDir)
-	run("git", "clone", "git@github.com:sbinet/sbinet.github.io", blogDir)
-	run("/bin/sh", "-c", "/bin/cp -rf public/* "+blogDir+"/.")
+	dir := filepath.Join(buildDir, blogDir)
 
-	err := os.Chdir(blogDir)
+	os.RemoveAll(dir)
+
+	run("git", "clone", "git@github.com:sbinet/sbinet.github.io", dir)
+	run("/bin/sh", "-c",
+		fmt.Sprintf(
+			"/bin/cp -rf %v/* %v/.",
+			filepath.Join(buildDir, "public"),
+			dir,
+		),
+	)
+
+	err := os.Chdir(dir)
 	if err != nil {
 		log.Fatal(err)
 	}
