@@ -14,42 +14,38 @@ Until 2000, it recorded the decay products of `e+e-` collisions at center of mas
 
 An example is the muon pair production:
 
-```
-  e+e- -> mu+mu-
-```
+<div>$$ e^+ e^- \rightarrow \mu^+\mu^-$$</div>
 
 Both muons are mainly detected and reconstructed from the tracking system.
 From the measurements, the curvature, charge and momentum are determined.
 
 The file [L3.dat](/code/2017-10-10/L3.dat) contains recorded muon pair events.
-Every line is an event, a recorded collision of a `e+e-` pair producing a `mu+mu-` pair.
+Every line is an event, a recorded collision of a `\(e^+e^-\)` pair producing a `\(\mu^+\mu^-\)` pair.
 
-The first three columns contain the momentum components `px`, `py` and `pz` of the `mu+`.
-The other three columns contain the momentum components for the `mu-`.
-Units are in GeV/c.
+The first three columns contain the momentum components `\(p_x\)`, `\(p_y\)` and `\(p_z\)` of the `\(\mu^+\)`.
+The other three columns contain the momentum components for the `\(mu^-\)`.
+Units are in `\(GeV/c\)`.
 
 ## Forward-Backward Asymmetry
 
 An important parameter that constrains the Standard Model (the theoretical framework that models our current understanding of Physics) is the forward-backward asymmetry `A`:
 
-```
- A = (N_F - N_B) / (N_F + N_B)
-```
+<div>
+$$ A = (N_F - N_B) / (N_F + N_B) $$
+</div>
 
 where:
 
-- `N_F` are the events in which the `mu-` flies forwards (`cos theta_{mu-} > 0`);
-- `N_B` are the events in which the `mu-` flies backwards.
+- `\(N_F\)` are the events in which the `\(\mu^-\)` flies forwards (`\(\cos \theta_{\mu^-} > 0\)`);
+- `\(N_B\)` are the events in which the `\(\mu^-\)` flies backwards.
 
-Given the `L3.dat` dataset, we would like to estimate the value of `A` and determine its statistical error.
+Given the `L3.dat` dataset, we would like to estimate the value of `\(A\)` and determine its statistical error.
 
 In a simple counting experiment, we can write the statistical error as:
 
-```
- sigma_A = sqrt( (1-A*A) / N )
-```
+<div>$$ \sigma_A = \sqrt{ \frac{(1-A^2)}{N} }$$</div>
 
-where `N = N_F + N_B`.
+where `\(N = N_F + N_B\)`.
 
 So, as a first step, we can simply count the forward events.
 
@@ -105,7 +101,7 @@ func read(fname string) []float64 {
 }
 ```
 
-Now, with the `cos \theta^-` calculation out of the way, we can actually
+Now, with the `\(\cos \theta_{\mu^{-}}\)` calculation out of the way, we can actually
 compute the asymmetry and its associated statistical error:
 
 [embedmd]:# (../../static/code/2017-10-10/fba.go go /^func asym/ /^}/)
@@ -140,9 +136,8 @@ OK. Let's try to use `gonum/optimize` and a log-likelihood.
 
 To let `optimize.Local` loose on our dataset, we need the angular distribution:
 
-```
- f(theta, A) = 3/8 * (1 + cos^2(theta)) + A cos(theta)
-```
+<div>$$ f(\theta, A) = \frac{3}{8} (1 + \cos^2 \theta) + A \cos\theta $$ </div>
+
 
 we just need to feed that through the log-likelihood procedure:
 
