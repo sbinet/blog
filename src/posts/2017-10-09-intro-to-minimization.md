@@ -9,10 +9,10 @@ to perform minimization with [Gonum](https://gonum.org).
 
 In _High Energy Physics_, there is a program to calculate numerically:
 
-- a function minimum of `F(a)` of parameters `a_i` (with up to 50 parameters),
+- a function minimum of `\(F(a)\)` of parameters `\(a_i\)` (with up to 50 parameters),
 - the covariance matrix of these parameters
-- the (asymmetric or parabolic) errors of the parameters from `F_min+∆` for arbitrary `∆` 
-- the contours of parameter pairs `a_i,a_j`.
+- the (asymmetric or parabolic) errors of the parameters from `\(F_{min}+\Delta\)` for arbitrary `\(\Delta\)`
+- the contours of parameter pairs `\(a_i, a_j\)`.
 
 This program is called [MINUIT](https://en.wikipedia.org/wiki/MINUIT) and was originally written by Fred JAMES in `FORTRAN`.
 `MINUIT` has been since then rewritten in `C++` and is available through [ROOT](https://root.cern.ch).
@@ -91,15 +91,11 @@ Ok, let's try to estimate `µ` using a log-likelihood minimization.
 From the plot above and from first principles, we can assume a Poisson distribution.
 The Poisson probability is:
 
-```latex
-P(n|\mu) = \mu^{n} / n! * e^{-\mu}
-```
+<div>$$P(n|\mu) = \frac{\mu^{n}}{n!} e^{-\mu}$$</div>
 
 This therefore leads to a log-likelihood of:
 
-```latex
-ln L(\mu) = n ln(\mu) - ln(n!) - \mu
-```
+<div>$$\ln L(\mu) = n \ln(\mu) - \ln(n!) - \mu$$</div>
 
 which is the quantity we'll try to optimize.
 
