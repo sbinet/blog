@@ -134,7 +134,7 @@ OK. Let's try to use `gonum/optimize` and a log-likelihood.
 
 ## Estimation with `gonum/optimize`
 
-To let `optimize.Local` loose on our dataset, we need the angular distribution:
+To let `optimize.Minimize` loose on our dataset, we need the angular distribution:
 
 <div>$$ f(\theta, A) = \frac{3}{8} (1 + \cos^2 \theta) + A \cos\theta $$ </div>
 
@@ -176,7 +176,7 @@ func main() {
 	var meth = &optimize.Newton{}
 	var p0 = []float64{0} // initial value for A
 
-	res, err := optimize.Local(p, p0, nil, meth)
+	res, err := optimize.Minimize(p, p0, nil, meth)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -52,7 +52,7 @@ func main() {
 	var meth = &optimize.Newton{}
 	var p0 = []float64{1} // initial value for mu
 
-	res, err := optimize.Local(p, p0, nil, meth)
+	res, err := optimize.Minimize(p, p0, nil, meth)
 	if err != nil {
 		log.Fatal(err)
 	}
