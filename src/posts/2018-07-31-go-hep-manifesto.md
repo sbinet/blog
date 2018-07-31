@@ -183,7 +183,7 @@ At least not easily: while reading is possible, [Go-HEP](https://go-hep.org) is 
 This restriction should be lifted before the end of 2018.
 
 That said, Go can already be quite useful and usable, now, in science and HENP, for data acquisition, monitoring, cloud computing, control frameworks and some physics analyses.
-Indeed, [Go-HEP](https://go-hep.org) provides HEP-oriented tools such as histograms and n-tuples, Lorentz vectors, fitting, interoperability with [HepMC](https://gitlab.cern.ch/hepmc/HepMC) and other Monte-Carlo programs (HepPDT, LHEF, SLHA), a toolkit for a fast detector simulation a la [Delphes](https://cp3.irmp.ucl.ac.be/projects/delphes) and libraries to interact with [ROOT](https://root.cern) and [XRootD](http://xrootd.org).
+Indeed, [Go-HEP](https://go-hep.org) provides HEP-oriented tools such as histograms and n-tuples, Lorentz vectors, fitting, interoperability with [HepMC](https://gitlab.cern.ch/hepmc/HepMC) and other Monte-Carlo programs (HepPDT, LHEF, SLHA), a toolkit for a fast detector simulation à la [Delphes](https://cp3.irmp.ucl.ac.be/projects/delphes) and libraries to interact with [ROOT](https://root.cern) and [XRootD](http://xrootd.org).
 
 I think building the missing scientific libraries in Go is a better investment than trying to fix the `C++/Python` languages and ecosystems.
 
