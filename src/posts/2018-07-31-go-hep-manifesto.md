@@ -100,7 +100,7 @@ So much so that the `go run foo.go` command, that compiles a complete program an
 Go produces static binaries that usually do not even require `libc`.
 One can take a binary compiled for `linux/amd64`, copy it on a Centos-7 machine or on a Debian-8 one, and it will happily perform the requested task.
 
-As a _gedankexperiment_, take a standard `centos7` `docker` image from docker-hub and imagine having to build your entire experiment software stack, from the exact gcc version down to the last wagon of your train analysis.
+As a _Gedankexperiment_, take a standard `centos7` `docker` image from docker-hub and imagine having to build your entire experiment software stack, from the exact gcc version down to the last wagon of your train analysis.
 
 - How much time would it take?
 - How much effort of tracking dependencies and ensuring internal consistency would it take?
@@ -190,3 +190,7 @@ I think building the missing scientific libraries in Go is a better investment t
 Go is a better trade-off for software engineering and for science:
 
 ![with-go](/code/2018-07-31/funfast.svg)
+
+---
+
+**PS:** There's a nice discussion about this post on the [Go-HEP forum](https://groups.google.com/forum/#!topic/go-hep/H-_Mj1JKeT4).
