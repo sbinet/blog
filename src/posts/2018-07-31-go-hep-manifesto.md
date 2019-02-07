@@ -16,7 +16,7 @@ In my introduction talk(s) about [Go](https://golang.org) and [Go-HEP](https://g
 HENP software is no exception.
 It *is* painful.
 
-As a C++/Python developer and former software architect of one of the four LHC experiments, I can tell you from vivid experience that software is painful develop.
+As a C++/Python developer and former software architect of one of the four LHC experiments, I can tell you from vivid experience that software is painful to develop.
 One has to tame deep and complex software stacks with huge dependency lists.
 Each dependency comes with its own way to be configured, built and installed.
 Each dependency comes with its own dependencies.
